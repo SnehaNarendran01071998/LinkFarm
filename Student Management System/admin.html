@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nirman</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="C:\Users\SACHIN\Desktop\Student Management System\css\bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="C:\Users\SACHIN\Desktop\Student Management System\font-awesome\css\font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="C:\Users\SACHIN\Desktop\Student Management System\styles\stylesforadmin.css">
+</head>
+<body>
+<button class="tablink" onclick="openPage('Home', this, 'black')" id="defaultOpen">Statistics</button>
+
+	<div id="Home" class="tabcontent">
+  		<h3>Statistics</h3>
+  		<div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-pie-chart fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">Performance</div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#ViewStats">View Statistics 
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                 	<div class="clearfix"></div>                                
+                            </button>                                                                                            
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-pie-chart fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">DropOut Stats</div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#ViewDropStats">View Statistics 
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                 	<div class="clearfix"></div>                                
+                            </button>                                                                                            
+                        </div>
+                    </div>
+  		<div class="modal fade" id="ViewStats" role="dialog">
+    	<div class="modal-dialog"> 
+      	<!-- Modal content-->
+      	<div class="modal-content" id="chart">
+        	<div class="modal-header">
+          		<button type="button" class="close" data-dismiss="modal">&times;</button>
+          		<h4 class="modal-title">Performace Report</h4>
+          		<label>Figures are given in Percentage</label>
+        	</div>        	
+        	<div class="modal-footer">
+          		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        	</div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+	</div>
+	<div class="modal fade" id="ViewDropStats" role="dialog">
+    	<div class="modal-dialog"> 
+      	<!-- Modal content-->
+      	<div class="modal-content" id="chart1">
+        	<div class="modal-header">
+          		<button type="button" class="close" data-dismiss="modal">&times;</button>
+          		<h4 class="modal-title">Performace Report</h4>
+          		<label>Figures indicate Percentage Of Students Dropping Out</label>
+        	</div>        	
+        	<div class="modal-footer">
+          		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        	</div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+	</div>
+<script>
+	function openPage(pageName,elmnt,color) {
+    	var i, tabcontent, tablinks;
+    	tabcontent = document.getElementsByClassName("tabcontent");
+    	for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    	}
+    	tablinks = document.getElementsByClassName("tablink");
+    	for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    	}
+    	document.getElementById(pageName).style.display = "block";
+    	elmnt.style.backgroundColor = color;
+	}
+// Get the element with id="defaultOpen" and click on it
+		document.getElementById("defaultOpen").click();
+	</script>
+	<script type="text/javascript" src="C:\Users\SACHIN\Desktop\Student Management System\js\jquery-3.3.1.min.js"> </script>
+	<script type="text/javascript" src="C:\Users\SACHIN\Desktop\Student Management System\js\bootstrap.min.js"></script>
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js">
+	</script>
+	<script type="text/javascript">
+		var data = [{
+  		x: ['Total Strength', 'Drop Out'],
+  		y: [100, 23],
+  		type: 'bar',
+  		width:0.1
+}];
+
+Plotly.newPlot('chart', data);
+	</script>
+	<script type="text/javascript">
+	var data = 
+	[{
+  	values: [5, 10, 8],
+  	labels: ['Economic Reason', 'Transportation', 'Mindset'],
+  	type: 'pie'
+	}];
+Plotly.newPlot('chart1', data);
+</script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Management Portal</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="C:\Users\SACHIN\Desktop\Student Management System\css\bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="C:\Users\SACHIN\Desktop\Student Management System\font-awesome\css\font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="C:\Users\SACHIN\Desktop\Student Management System\styles\stylesforstudent.css">
+</head>
+<body>
+	
+	<button class="tablink" onclick="openPage('Home', this, 'red')">Homeworks</button>
+	<button class="tablink" onclick="openPage('Academics', this, 'green')" id="defaultOpen">Academics</button>
+
+	<div id="Home" class="tabcontent">
+  		<h3>Homeworks</h3>
+  		<div class="panel-group">
+    		<div class="panel panel-success">
+      			<div class="panel-heading">Maths HomeWork</div>
+      				<div class="panel-body">Everyone is requested to complete the Maths Homework assigned to them. On Failing to do so , you would face strict consequences
+      				</div>
+    		</div>
+    		<div class="panel panel-success">
+      			<div class="panel-heading">Science Homework</div>
+      				<div class="panel-body">Everyone is requested to do the excercises of Chapter 3. On Failing to do So,you would have to write impositions.
+      				</div>
+    		</div>
+    		<div class="panel panel-success">
+      			<div class="panel-heading">English Homework</div>
+      				<div class="panel-body">There would be a spelling test conducted tommorow during English Period. There would be a total of ten spelling. 
+      				</div>
+    		</div>
+  		</div>
+	
+	</div>
+	<div id="Academics" class="tabcontent">
+		<h3>Academics </h3>
+		<div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-university fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">Performance</div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#ViewStats">View Performance 
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                 	<div class="clearfix"></div>                                
+                            </button>                                                                                            
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-university fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">Statistics</div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#ViewCharts">View Statistics 
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                 	<div class="clearfix"></div>                                
+                            </button>                                                                                            
+                        </div>
+                    </div>
+        </div> 
+	</div>
+<div class="modal fade" id="ViewStats" role="dialog">
+    	<div class="modal-dialog">
+    
+      	<!-- Modal content-->
+      	<div class="modal-content">
+        	<div class="modal-header">
+          		<button type="button" class="close" data-dismiss="modal">&times;</button>
+          		<h4 class="modal-title">Performace Report</h4>
+        	</div>
+        	<div class="modal-body">
+          	<div class="table-responsive">
+          	<h3>Sachin Narendran</h3>
+          	<table>          		
+          		<tr>
+          			<td>Maths</td>
+          			<td>85</td>
+          		</tr>
+          		<tr>
+          			<td>Science</td>
+          			<td>95</td>
+          		</tr>
+          		<tr>
+          			<td>English</td>
+          			<td>88</td>
+          		</tr>
+          		<tr>
+          			<td>Social<br> Studies</td>
+          			<td>90</td>
+          		</tr>
+          		<tr>
+          			<td>Hindi</td>
+          			<td>80</td>
+          		</tr>
+          	</table>	
+          			
+          		
+        	</div>
+        	<div class="modal-footer">
+          		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        	</div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="ViewCharts" role="dialog">
+    	<div class="modal-dialog">
+    
+      	<!-- Modal content-->
+      	<div class="modal-content">
+        	<div class="modal-header">
+          		<button type="button" class="close" data-dismiss="modal">&times;</button>
+          		<h4 class="modal-title">Performace Report</h4>
+        	</div>
+        	<div class="modal-body" id="chart">
+          	
+        	</div>
+        	<div class="modal-footer">
+          		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        	</div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+	<script>
+	function openPage(pageName,elmnt,color) {
+    	var i, tabcontent, tablinks;
+    	tabcontent = document.getElementsByClassName("tabcontent");
+    	for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    	}
+    	tablinks = document.getElementsByClassName("tablink");
+    	for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    	}
+    	document.getElementById(pageName).style.display = "block";
+    	elmnt.style.backgroundColor = color;
+	}
+// Get the element with id="defaultOpen" and click on it
+		document.getElementById("defaultOpen").click();
+	</script>     
+	<script type="text/javascript" src="C:\Users\SACHIN\Desktop\Student Management System\js\jquery-3.3.1.min.js"> </script>
+	<script type="text/javascript" src="C:\Users\SACHIN\Desktop\Student Management System\js\bootstrap.min.js"></script>
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<script type="text/javascript">
+		var data = [{
+  		x: ['You', 'Class Average'],
+  		y: [40, 35],
+  		type: 'bar',
+  		width:0.1
+}];
+
+Plotly.newPlot('chart', data);
+	</script>
+</body>
+</html>
